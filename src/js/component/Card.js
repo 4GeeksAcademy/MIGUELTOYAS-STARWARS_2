@@ -7,7 +7,7 @@ const Card = (props) => {
   const navigate = useNavigate();
 
   const isFavorite = store.favorites.some(
-    fav => fav.uid === props.uid && fav.type === props.type
+    (fav) => fav.uid === props.uid && fav.type === props.type
   );
 
   const handleFavoriteClick = () => {
@@ -30,10 +30,12 @@ const Card = (props) => {
         <h3 className="star-wars-card-title">{props.name}</h3>
         <div className="star-wars-card-buttons">
           <button
-            className={`star-wars-btn ${isFavorite ? 'star-wars-btn-remove' : 'star-wars-btn-add'}`}
+            className={`star-wars-btn ${
+              isFavorite ? "star-wars-btn-remove" : "star-wars-btn-add"
+            }`}
             onClick={handleFavoriteClick}
           >
-            {isFavorite ? 'Remove' : 'Add to Favorites'}
+            {isFavorite ? "Remove from favorites" : "Add to Favorites"}
           </button>
           <button
             className="star-wars-btn star-wars-btn-details"

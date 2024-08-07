@@ -32,20 +32,20 @@ const CardFavorites = ({ name, uid, type }) => {
       />
       <div className="card-body">
         <h5 className="card-title star-wars-title">{name}</h5>
-        <div className="row d-flex justify-content-between align-items-center">
+        <div className="star-wars-card-buttons">
           <button
             type="button"
-            className="btn btn-outline-info px-1 col-8 mb-3 col-sm-6 mb-sm-0 col-md-6 col-xl-6 col-xxl-4"
-            onClick={() => navigate(`/${type}/${uid}`)}
+            className="star-wars-btn star-wars-btn-remove"
+            onClick={() => actions.removeFromFav(uid)}
           >
-            See more details
+            Remove from favorites
           </button>
           <button
             type="button"
-            className="btn btn-outline-danger px-1 col-8 mb-3 col-sm-6 mb-sm-0 col-md-6 col-xl-6 col-xxl-4"
-            onClick={() => actions.removeFromFav(uid)}
+            className="star-wars-btn star-wars-btn-details"
+            onClick={() => navigate(`/${type}/${uid}`)}
           >
-            Delete from fav
+            Details
           </button>
         </div>
       </div>

@@ -177,12 +177,13 @@ const getState = ({ getStore, getActions, setStore }) => {
       // Funciones adicionales:
       getHomeWorldName: async (homeworld) => {
         setStore({ homeworld: "" });
-
+        setStore({ loading: true })
         try {
           const response = await axios.get(`${homeworld}`);
           if (response) {
             console.log(response);
             setStore({ homeworld: response.data.result.properties.name });
+            setStore({ loading: false })
           }
         } catch (error) {
           console.error(error);
